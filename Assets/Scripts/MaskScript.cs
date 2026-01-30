@@ -49,7 +49,7 @@ public class MaskScript : MonoBehaviour
     IEnumerator PutMaskOn()
     {
         MaskAnimated = true;
-        while (MaskElement.anchoredPosition.y > -height)
+        while (MaskElement.anchoredPosition.y > -(height - MaskSpeed))
         {
             MaskElement.localPosition = new Vector3(MaskElement.localPosition.x, MaskElement.localPosition.y - MaskSpeed);
             yield return new WaitForSeconds(MaskAnimationSpeedSeconds);
