@@ -1,29 +1,25 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
+[RequireComponent(typeof(MovementController))]
 public class PlayerController : MonoBehaviour
 {
     InputAction Move; 
 
-    public CharacterController Controller;
-    public float Speed = 12f; 
+    MovementController controller;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Move = InputSystem.actions.FindAction("Move"); 
-        Controller = GetComponent<CharacterController>();
+        controller = GetComponent<MovementController>();
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector2 movement = Move.ReadValue<Vector2>(); 
-
-        Vector3 movedirection = transform.right * movement.x + transform.forward * movement.y;
-
-        Controller.Move(movedirection * Speed * Time.deltaTime);
+        controller.Movement = movement;
 
 
     }
