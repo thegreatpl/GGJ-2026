@@ -22,18 +22,27 @@ public class MaskScript : MonoBehaviour
     void Start()
     {
         MaskElement = gameObject.GetComponent<RectTransform>();
-        height = MaskElement.rect.yMax; 
-
+        height = MaskElement.rect.yMax;
+        SwitchMask = InputSystem.actions.FindAction("Sprint"); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (MaskOn && !MaskAnimated)
-            StartCoroutine(PutMaskOff());
-        else if (!MaskAnimated)
-            StartCoroutine(PutMaskOn());
-
+        if (SwitchMask.IsPressed())
+        {
+            if (!MaskAnimated)
+            {
+                if (MaskOn)
+                {
+                    StartCoroutine(PutMaskOff());
+                }
+                else
+                {
+                    StartCoroutine(PutMaskOn());
+                }
+            }
+        }
     }
 
 
