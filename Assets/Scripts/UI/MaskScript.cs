@@ -15,7 +15,11 @@ public class MaskScript : MonoBehaviour
 
     float height;
 
-    InputAction SwitchMask; 
+    InputAction SwitchMask;
+
+
+
+    public BreathElement BreathElement; 
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,10 +40,12 @@ public class MaskScript : MonoBehaviour
                 if (MaskOn)
                 {
                     StartCoroutine(PutMaskOff());
+                    BreathElement.HoldBreath(); 
                 }
                 else
                 {
                     StartCoroutine(PutMaskOn());
+                    BreathElement.CanBreathe(); 
                 }
             }
         }
