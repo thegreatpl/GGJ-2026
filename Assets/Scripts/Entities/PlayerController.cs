@@ -4,14 +4,17 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(MovementController))]
 public class PlayerController : MonoBehaviour
 {
-    InputAction Move; 
+    InputAction Move;
+
+    InputAction Jump; 
 
     MovementController controller;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Move = InputSystem.actions.FindAction("Move"); 
+        Move = InputSystem.actions.FindAction("Move");
+        Jump = InputSystem.actions.FindAction("Jump"); 
         controller = GetComponent<MovementController>();
     }
 
@@ -21,6 +24,6 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = Move.ReadValue<Vector2>(); 
         controller.Movement = movement;
 
-
+        controller.Jump = Jump.IsPressed(); 
     }
 }

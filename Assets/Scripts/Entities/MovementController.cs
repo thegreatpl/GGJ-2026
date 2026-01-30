@@ -7,8 +7,10 @@ public class MovementController : MonoBehaviour
 
     public CharacterController Controller;
     public float Speed = 12f;
+    public float JumpHeight = 3f; 
 
     public Vector2 Movement;
+    public bool Jump; 
 
     public float Gravity = -9.18f; 
     Vector3 velocity;
@@ -30,11 +32,19 @@ public class MovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         GravityReset(); 
+        //Normal movement. 
         Vector3 movedirection = transform.right * Movement.x + transform.forward * Movement.y;
 
         Controller.Move(movedirection * Speed * Time.deltaTime);
 
+        //jumping
+        if (Jump && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(JumpHeight * -2 * Gravity);
+            Jump = false; 
+        }
 
         //Gravity falling stuff. 
         velocity.y += Gravity * Time.deltaTime;
