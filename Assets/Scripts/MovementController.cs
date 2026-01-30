@@ -1,16 +1,8 @@
 using UnityEngine;
+using UnityEngine.InputSystem;  // 1. The Input System "using" statement
+
 
 public class MovementController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
