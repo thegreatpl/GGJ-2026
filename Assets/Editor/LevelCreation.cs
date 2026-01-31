@@ -59,7 +59,8 @@ public class LevelCreation : MonoBehaviour
                 if (tile.name == "waypointIndicator")
                 {
                     var waypoint = PrefabUtility.InstantiatePrefab(waypointPrefab) as GameObject;
-                    waypoint.transform.position = map.GetCellCenterWorld(loc); 
+                    waypoint.transform.position = map.GetCellCenterWorld(loc);
+                    waypoint.name = $"Waypoint{xdx}-{ydx}";
 
 
                 }
