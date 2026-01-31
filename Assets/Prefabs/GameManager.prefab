@@ -45,6 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1e00d3aba78434eb0dbc9213e1a1b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  prefabManager: {fileID: 0}
+  Player: {fileID: 0}
+  UI: {fileID: 0}
+  CurrentMap: {fileID: 0}
 --- !u!114 &1484383894869713234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,3 +61,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24ac66d20e2eb7f4ea7bffc3be2378f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  Prefabs:
+  - Name: Player
+    Prefab: {fileID: 8694042442182992680, guid: c84abe8baa750ae4489bcdc5f7b8ef79, type: 3}
+    Type: Player
+  - Name: UI
+    Prefab: {fileID: 2578740898054840679, guid: ef53ad8581a0abd43a143c7557c7de6a, type: 3}
+    Type: UI
