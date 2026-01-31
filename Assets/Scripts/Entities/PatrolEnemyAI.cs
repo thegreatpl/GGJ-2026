@@ -10,7 +10,10 @@ public class PatrolEnemyAI : BaseAI
 
     public int CurrentWaypoint; 
 
-    public float Distance = 1f; 
+    public float Distance = 1f;
+    public float AttackDistance = 1f; 
+
+    public Animator Animator; 
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,6 +21,7 @@ public class PatrolEnemyAI : BaseAI
     {
         MovementController = GetComponent<MovementController>();
         CurrentWaypoint = 0;
+        Animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -25,7 +29,9 @@ public class PatrolEnemyAI : BaseAI
     {
         if (!MoveToAttackPlayer() && Waypoints.Length > 0)
         {
+            
             var targetpos = Waypoints[CurrentWaypoint].transform.position;
+            Animator.SetFloat("Animation", 0); 
             MoveTowardsLocation(targetpos);
 
             if (Vector3.Distance(transform.position, targetpos) < Distance)
@@ -35,6 +41,11 @@ public class PatrolEnemyAI : BaseAI
                     CurrentWaypoint = 0;
             }
             
+        }
+        else
+        {
+            Animator.SetFloat("Animation", 3);
+
         }
 
 
@@ -54,7 +65,13 @@ public class PatrolEnemyAI : BaseAI
 
         MoveTowardsLocation(GameManager.Instance.Player.transform.position);
 
-        //insert attack code here. 
+        if (Vector3.Distance(GameManager.Instance.Player.transform.position, transform.position) < AttackDistance)
+        {
+
+            //insert attack code here. 
+            Animator.SetFloat("Animation", 1); //attacking. 
+
+        }
 
         return true;
     }
