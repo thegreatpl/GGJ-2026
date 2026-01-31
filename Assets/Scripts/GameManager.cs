@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     {
         if (Instance != null)
         {
+            Destroy(gameObject); 
             return; 
         }
         Instance = this;
@@ -79,7 +80,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(levelname, LoadSceneMode.Single);
         yield return null;
-        CurrentMap = FindFirstObjectByType<MapScript>(); 
+        CurrentMap = FindAnyObjectByType<MapScript>(FindObjectsInactive.Include); 
         yield return null;
         Player.transform.position = CurrentMap.GetStartLocation(spawnloc); 
 

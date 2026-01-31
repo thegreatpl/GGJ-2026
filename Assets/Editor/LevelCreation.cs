@@ -82,6 +82,8 @@ public class LevelCreation : MonoBehaviour
             //zwall
             var wall = PrefabUtility.InstantiatePrefab(wallZ) as GameObject;
             wall.transform.position = new Vector3(worldpos.x, worldpos.y + tilesize.z/2, worldpos.z + tilesize.y /2);
+            wall.transform.eulerAngles 
+                = new Vector3(wall.transform.rotation.eulerAngles.x, 180, wall.transform.rotation.eulerAngles.z);
         }
         if (map.GetTile(new Vector3Int(tilepos.x, tilepos.y - 1)) == null)
         {
