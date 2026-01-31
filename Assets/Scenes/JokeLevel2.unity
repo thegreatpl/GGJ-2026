@@ -3101,11 +3101,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5697545088240483159, guid: b92450128f6c9ac4e9b88ee90d2e6dbe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.100000024
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5697545088240483159, guid: b92450128f6c9ac4e9b88ee90d2e6dbe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 54.236095
+      value: 51.91
       objectReference: {fileID: 0}
     - target: {fileID: 5697545088240483159, guid: b92450128f6c9ac4e9b88ee90d2e6dbe, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3137,7 +3137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8152104620531969419, guid: b92450128f6c9ac4e9b88ee90d2e6dbe, type: 3}
       propertyPath: NextLevel
-      value: JokeLevel1
+      value: JokeLevel3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
