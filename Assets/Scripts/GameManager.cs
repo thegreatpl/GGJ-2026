@@ -108,6 +108,10 @@ public class GameManager : MonoBehaviour
                 CurrentCamera = Player.GetComponentInChildren<Camera>();
             }
             //need to add a main menu camera finder here. 
+            if (SceneManager.GetActiveScene().name == "MainMenu")
+            {
+                return GameObject.FindFirstObjectByType<Camera>(); 
+            }
         }
 
         return CurrentCamera;
