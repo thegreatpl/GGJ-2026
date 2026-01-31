@@ -30,6 +30,7 @@ public class LevelCreation : MonoBehaviour
         var floorPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Terrain/Floor.prefab");
         var wallX = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Terrain/XWall.prefab");
         var wallZ = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Terrain/ZWall.prefab");
+        var roofprefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Terrain/Roof.prefab");
 
 
         var map = editorMap.Tilemap;
@@ -47,14 +48,14 @@ public class LevelCreation : MonoBehaviour
 
 
 
-                GenerateWallsOnTiles(map, loc,floorPrefab, wallZ, wallX); 
+                GenerateWallsOnTiles(map, loc,floorPrefab, roofprefab, wallZ, wallX); 
             }
 
         }
 
     }
 
-    static void GenerateWallsOnTiles(Tilemap map, Vector3Int tilepos, GameObject floorprefab, GameObject wallZ, GameObject wallX)
+    static void GenerateWallsOnTiles(Tilemap map, Vector3Int tilepos, GameObject floorprefab,GameObject roofprefab, GameObject wallZ, GameObject wallX)
     {
         var worldpos = map.GetCellCenterWorld(tilepos);
         var tilesize = map.layoutGrid.cellSize;
@@ -62,7 +63,7 @@ public class LevelCreation : MonoBehaviour
 
         var floor = PrefabUtility.InstantiatePrefab(floorprefab) as GameObject;
         floor.transform.position = worldpos;
-        var roof = PrefabUtility.InstantiatePrefab(floorprefab) as GameObject;
+        var roof = PrefabUtility.InstantiatePrefab(roofprefab) as GameObject;
         roof.transform.position = new Vector3(worldpos.x, worldpos.y + tilesize.z, worldpos.z);
 
         if (map.GetTile(new Vector3Int(tilepos.x + 1, tilepos.y)) == null)
