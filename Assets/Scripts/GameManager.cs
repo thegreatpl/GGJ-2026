@@ -65,13 +65,13 @@ public class GameManager : MonoBehaviour
             Destroy(UI); 
 
         var ui = prefabManager.GetPrefab("UI");
-        var uiobj = Instantiate(ui);
+        UI = Instantiate(ui);
         yield return null;
         var player = prefabManager.GetPrefab("Player");
         Player = Instantiate(player);
         yield return null;
         DontDestroyOnLoad(Player);
-        DontDestroyOnLoad(uiobj);
+        DontDestroyOnLoad(UI);
     }
 
     public void LoadLevel(string levelName, string spawnloc)
