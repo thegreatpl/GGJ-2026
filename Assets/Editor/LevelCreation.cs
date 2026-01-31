@@ -14,7 +14,7 @@ public class LevelCreation : MonoBehaviour
         var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
         scene.name = "New Level";
 
-        var tilemap = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/LevelEditing/Tilemap.prefab");
+        var tilemap = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/LevelEditing/MapObject.prefab");
         var localtilemap = PrefabUtility.InstantiatePrefab(tilemap) as GameObject;
         PrefabUtility.UnpackPrefabInstance(localtilemap, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
 
