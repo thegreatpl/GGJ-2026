@@ -6,7 +6,6 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using static PlasticPipe.PlasticProtocol.Messages.Serialization.ItemHandlerMessagesSerialization;
 
 public class LevelCreation : MonoBehaviour
 {
