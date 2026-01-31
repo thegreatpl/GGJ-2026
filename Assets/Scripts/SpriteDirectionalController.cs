@@ -19,7 +19,12 @@ public class SpriteDirectionalController : MonoBehaviour
 
     private void LateUpdate()
     {
-        var camera = GameManager.Instance.GetSceneCamera(); 
+        var camera = GameManager.Instance.GetSceneCamera();
+
+        if (camera == null)
+        {
+            return; 
+        }
 
         Vector3 forwardCamera = new Vector3(camera.transform.forward.x, 0f, camera.transform.forward.z);
 
