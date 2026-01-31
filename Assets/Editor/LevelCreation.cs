@@ -23,6 +23,7 @@ public class LevelCreation : MonoBehaviour
 
         var gameManager = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/GameManager.prefab");
         PrefabUtility.InstantiatePrefab(gameManager);
+        AddFog(); 
     }
 
     [MenuItem("LevelEditing/GenerateWalls")]
@@ -129,5 +130,13 @@ public class LevelCreation : MonoBehaviour
         }
         EditorBuildSettings.scenes = scenes.ToArray();
 
+    }
+
+    [MenuItem("LevelEditing/Add Fog")]
+    static void AddFog()
+    {
+        RenderSettings.fog = true;
+        RenderSettings.fogDensity = 0.05f;
+        RenderSettings.fogColor = Color.black; 
     }
 }
