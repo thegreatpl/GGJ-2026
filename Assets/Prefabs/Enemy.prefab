@@ -134,9 +134,9 @@ MonoBehaviour:
   Waypoints: []
   CurrentWaypoint: 0
   Distance: 1
-  AttackDistance: 1
+  AttackDistance: 2.5
   Animator: {fileID: 0}
-  CooldownTime: 100
+  CooldownTime: 200
 --- !u!82 &-7165898579650777909
 AudioSource:
   m_ObjectHideFlags: 0

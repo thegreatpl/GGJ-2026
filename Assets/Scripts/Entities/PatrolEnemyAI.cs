@@ -74,7 +74,7 @@ public class PatrolEnemyAI : BaseAI
 
             //insert attack code here. 
             Animator.SetFloat("Animation", 1); //attacking. 
-
+            GameManager.Instance.Player.GetComponent<PlayerHealth>().TakeDamage();
             cooldown = CooldownTime; 
         }
 

@@ -14,7 +14,7 @@ public class EndLevelScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !string.IsNullOrWhiteSpace(NextLevel))
         {
             GameManager.Instance.LoadLevel(NextLevel, StartLocationName);   
         }
@@ -22,7 +22,7 @@ public class EndLevelScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !string.IsNullOrWhiteSpace(NextLevel))
         {
             GameManager.Instance.LoadLevel(NextLevel, StartLocationName);
         }
