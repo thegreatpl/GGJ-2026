@@ -1,4 +1,7 @@
 using Mono.Cecil;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -92,5 +95,24 @@ public class LevelCreation : MonoBehaviour
             var wall = PrefabUtility.InstantiatePrefab(wallZ) as GameObject;
             wall.transform.position = new Vector3(worldpos.x, worldpos.y + tilesize.z / 2, worldpos.z - tilesize.y / 2);
         }
+    }
+
+    [MenuItem("LevelEditing/Add all scenes to build")]
+    static void CompileScenes()
+    {
+        List<EditorBuildSettingsScene> scenes = new List<EditorBuildSettingsScene>();
+
+        var files = Directory.GetFiles("Assets/Scenes").Where(x => Path.GetExtension(x) == ".unity").ToList();
+
+        var mainmenu = files.FirstOrDefault(x => Path.GetFileName(x) == "MainMenu.unity");
+        scenes.Add(new EditorBuildSettingsScene(mainmenu, true)); 
+        files.Remove(mainmenu);
+
+        foreach (var file in files) 
+        {
+            scenes.Add(new EditorBuildSettingsScene(file, true));
+        }
+        EditorBuildSettings.scenes = scenes.ToArray();
+
     }
 }
