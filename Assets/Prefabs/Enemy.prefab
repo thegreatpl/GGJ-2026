@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 4845285060648332976}
   - component: {fileID: -1232978620651334293}
   - component: {fileID: 2127760562617783786}
+  - component: {fileID: 5987779557207336374}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -104,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovementController
   Controller: {fileID: 0}
-  Speed: 12
+  Speed: 5
   JumpHeight: 3
   Movement: {x: 0, y: 0}
   Jump: 0
@@ -114,6 +115,23 @@ MonoBehaviour:
   GroundMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &5987779557207336374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953698625674250555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 945545dfb775e88499e8701edf79d30e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PatrolEnemyAI
+  MovementController: {fileID: 0}
+  RotationSpeed: 1
+  Location1: {x: 0, y: 0, z: 0}
+  Location2: {x: 0, y: 0, z: 0}
+  Distance: 1
 --- !u!1 &8613874894472985615
 GameObject:
   m_ObjectHideFlags: 0

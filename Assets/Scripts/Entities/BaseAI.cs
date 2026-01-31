@@ -27,9 +27,9 @@ public class BaseAI : MonoBehaviour
         Vector3 euler = transform.eulerAngles;
         euler.x = 0f; 
         euler.z = 0f;
-        transform.rotation = Quaternion.Euler(euler); 
+        transform.rotation = Quaternion.Euler(euler);
 
-
+        MovementController.Movement = Vector2.up; 
 
         //var targetdirection = location - transform.position;
 
