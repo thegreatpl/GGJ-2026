@@ -20,7 +20,9 @@ public class MaskScript : MonoBehaviour
 
 
 
-    public BreathElement BreathElement; 
+    public BreathElement BreathElement;
+
+    public AudioSource BreathingAudio; 
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,7 +32,8 @@ public class MaskScript : MonoBehaviour
         height = MaskElement.rect.height;
         startLocaly = MaskElement.localPosition.y; 
         SwitchMask = InputSystem.actions.FindAction("Sprint");
-        MaskOn = true; 
+        MaskOn = true;
+        BreathingAudio = GetComponent<AudioSource>(); 
     }
 
     // Update is called once per frame
@@ -64,6 +67,7 @@ public class MaskScript : MonoBehaviour
             yield return new WaitForSeconds(MaskAnimationSpeedSeconds);
         }
         MaskOn = true; 
+        BreathingAudio.Play();
         yield return null; 
         MaskAnimated = false;
     }
@@ -72,6 +76,7 @@ public class MaskScript : MonoBehaviour
     IEnumerator PutMaskOff()
     {
         MaskAnimated = true; 
+        BreathingAudio.Pause();
         while  (MaskElement.localPosition.y < startLocaly + height)
         {
             MaskElement.localPosition = new Vector3(MaskElement.localPosition.x,  MaskElement.localPosition.y + (height/ MaskSpeed));
