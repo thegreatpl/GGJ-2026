@@ -36,6 +36,9 @@ public class LevelCreation : MonoBehaviour
         var roofprefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Terrain/Roof.prefab");
 
 
+        var waypointPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/MapElements/Waypoint.prefab"); 
+
+
         var map = editorMap.Tilemap;
 
         var bounds = map.cellBounds;
@@ -52,6 +55,15 @@ public class LevelCreation : MonoBehaviour
 
 
                 GenerateWallsOnTiles(map, loc,floorPrefab, roofprefab, wallZ, wallX); 
+
+                if (tile.name == "waypointIndicator")
+                {
+                    var waypoint = PrefabUtility.InstantiatePrefab(waypointPrefab) as GameObject;
+                    waypoint.transform.position = map.GetCellCenterWorld(loc); 
+
+
+                }
+
             }
 
         }
@@ -95,6 +107,9 @@ public class LevelCreation : MonoBehaviour
             var wall = PrefabUtility.InstantiatePrefab(wallZ) as GameObject;
             wall.transform.position = new Vector3(worldpos.x, worldpos.y + tilesize.z / 2, worldpos.z - tilesize.y / 2);
         }
+
+
+
     }
 
     [MenuItem("LevelEditing/Add all scenes to build")]
