@@ -15,7 +15,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject UI; 
 
-    public MapScript CurrentMap; 
+    public MapScript CurrentMap;
+
+
+    private Camera CurrentCamera; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -95,4 +98,18 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single); 
     }
 
+
+    public Camera GetSceneCamera()
+    {
+        if (CurrentCamera == null)
+        {
+            if (Player != null)
+            {
+                CurrentCamera = Player.GetComponentInChildren<Camera>();
+            }
+            //need to add a main menu camera finder here. 
+        }
+
+        return CurrentCamera;
+    }
 }
