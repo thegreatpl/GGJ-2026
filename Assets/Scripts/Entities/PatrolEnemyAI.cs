@@ -13,7 +13,11 @@ public class PatrolEnemyAI : BaseAI
     public float Distance = 1f;
     public float AttackDistance = 1f; 
 
-    public Animator Animator; 
+    public Animator Animator;
+
+    public int CooldownTime = 100; 
+
+    int cooldown = 0;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,9 +31,8 @@ public class PatrolEnemyAI : BaseAI
     // Update is called once per frame
     void Update()
     {
-        if (!MoveToAttackPlayer() && Waypoints.Length > 0)
-        {
-            
+        if (cooldown <1 &&!MoveToAttackPlayer() && Waypoints.Length > 0)
+        {     
             var targetpos = Waypoints[CurrentWaypoint].transform.position;
             Animator.SetFloat("Animation", 0); 
             MoveTowardsLocation(targetpos);
@@ -45,7 +48,8 @@ public class PatrolEnemyAI : BaseAI
         else
         {
             Animator.SetFloat("Animation", 3);
-
+            if (cooldown > 0)
+                cooldown--;
         }
 
 
@@ -71,6 +75,7 @@ public class PatrolEnemyAI : BaseAI
             //insert attack code here. 
             Animator.SetFloat("Animation", 1); //attacking. 
 
+            cooldown = CooldownTime; 
         }
 
         return true;
