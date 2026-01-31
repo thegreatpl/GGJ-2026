@@ -12,7 +12,7 @@ public class SpriteDirectionalController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ParentTransform = GetComponentInParent<Transform>(); 
+        //ParentTransform = GetComponentInParent<Transform>(); 
         Animator = GetComponent<Animator>();
     }
 
@@ -37,7 +37,7 @@ public class SpriteDirectionalController : MonoBehaviour
         if (angle < BackAngle)
         {
             //back animation
-            animationDirection = new Vector2(0, 1f);
+            animationDirection = new Vector2(0, -1f);
         }
         else if (angle < SideAngle)
         {

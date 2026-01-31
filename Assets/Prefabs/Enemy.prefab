@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: -1232978620651334293}
   - component: {fileID: 2127760562617783786}
   - component: {fileID: 5987779557207336374}
-  - component: {fileID: 617100514024950406}
   - component: {fileID: -7165898579650777909}
   m_Layer: 0
   m_Name: Enemy
@@ -118,27 +117,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
 --- !u!114 &5987779557207336374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5953698625674250555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 945545dfb775e88499e8701edf79d30e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PatrolEnemyAI
-  MovementController: {fileID: 0}
-  RotationSpeed: 1
-  SightDistance: 20
-  Waypoints: []
-  CurrentWaypoint: 0
-  Distance: 1
-  AttackDistance: 1
-  Animator: {fileID: 0}
-  CooldownTime: 100
---- !u!114 &617100514024950406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -376,8 +354,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpriteDirectionalController
   BackAngle: 65
   SideAngle: 155
-  ParentTransform: {fileID: 0}
-  Animator: {fileID: 0}
+  ParentTransform: {fileID: 4845285060648332976}
+  Animator: {fileID: 3351326500450514056}
 --- !u!95 &3351326500450514056
 Animator:
   serializedVersion: 7
