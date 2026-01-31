@@ -5,7 +5,9 @@ public class BaseAI : MonoBehaviour
 {
     public MovementController MovementController;
 
-    public float RotationSpeed = 1f; 
+    public float RotationSpeed = 1f;
+
+    public float SightDistance = 5f; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,20 +33,17 @@ public class BaseAI : MonoBehaviour
 
         MovementController.Movement = Vector2.up; 
 
-        //var targetdirection = location - transform.position;
+    }
 
-        //float singlestep = RotationSpeed * Time.deltaTime;
-
-        //Quaternion.LookRotation()
-
-        //var newdirection = Vector3.RotateTowards(transform.forward, targetdirection, singlestep, 0f);
-
-        ////debug stuff. 
-        //Debug.DrawRay(transform.position, newdirection, Color.red);
-        //Debug.Log($"Rotation: {newdirection}"); 
-
-
-        //transform.rotation = Quaternion.LookRotation(newdirection);
+    protected bool CanSee(GameObject gameObject)
+    {
+        RaycastHit hit; 
+        Physics.Raycast(transform.position, gameObject.transform.position - transform.position, out hit, SightDistance); 
+        if (hit.transform?.gameObject == gameObject)
+        {
+            return true;
+        }
+        return false;
     }
 
 }

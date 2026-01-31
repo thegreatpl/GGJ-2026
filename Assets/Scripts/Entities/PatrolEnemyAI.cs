@@ -1,36 +1,61 @@
+using System.Collections.Generic;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
 public class PatrolEnemyAI : BaseAI
 {
-    public Vector3 Location1;
-    public Vector3 Location2;
+
+
+    public Waypoint[] Waypoints;
+
+    public int CurrentWaypoint; 
 
     public float Distance = 1f; 
 
-    bool location1 = true; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         MovementController = GetComponent<MovementController>();
+        CurrentWaypoint = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (location1)
+        if (!MoveToAttackPlayer() && Waypoints.Length > 0)
         {
-            MoveTowardsLocation(Location1);
+            var targetpos = Waypoints[CurrentWaypoint].transform.position;
+            MoveTowardsLocation(targetpos);
 
-            if (Vector3.Distance(transform.position, Location1) < Distance) 
-                location1 = false;
+            if (Vector3.Distance(transform.position, targetpos) < Distance)
+            {
+                CurrentWaypoint++; 
+                if (CurrentWaypoint >= Waypoints.Length)
+                    CurrentWaypoint = 0;
+            }
+            
         }
-        else
+
+
+    }
+
+
+    protected bool MoveToAttackPlayer()
+    {
+        if (GameManager.Instance.Player == null)
         {
-            MoveTowardsLocation(Location2);
-            if (Vector3.Distance(transform.position, Location2) < Distance)
-                location1 = true;
+            return false; 
         }
 
+        if (!CanSee(GameManager.Instance.Player)) 
+            { return false; }
+      
+
+        MoveTowardsLocation(GameManager.Instance.Player.transform.position);
+
+        //insert attack code here. 
+
+        return true;
     }
 }

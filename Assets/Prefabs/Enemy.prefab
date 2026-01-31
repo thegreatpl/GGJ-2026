@@ -129,8 +129,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PatrolEnemyAI
   MovementController: {fileID: 0}
   RotationSpeed: 1
-  Location1: {x: 0, y: 0, z: 0}
-  Location2: {x: 0, y: 0, z: 0}
+  SightDistance: 20
+  Waypoints: []
+  CurrentWaypoint: 0
   Distance: 1
 --- !u!1 &8613874894472985615
 GameObject:
