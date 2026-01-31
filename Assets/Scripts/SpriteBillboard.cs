@@ -16,7 +16,12 @@ public class SpriteBillboard : MonoBehaviour
 
     private void LateUpdate()
     {
+        var cam = GameManager.Instance.GetSceneCamera();
+
+        if (cam == null)
+            return; 
+
         transform.rotation = Quaternion.Euler(0f, 
-             GameManager.Instance.GetSceneCamera().transform.rotation.eulerAngles.y, 0f);    
+             cam.transform.rotation.eulerAngles.y, 0f);    
     }
 }
