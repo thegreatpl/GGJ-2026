@@ -58,9 +58,9 @@ public class MaskScript : MonoBehaviour
     IEnumerator PutMaskOn()
     {
         MaskAnimated = true;
-        while(MaskElement.localPosition.y > startLocaly)
+        while(MaskElement.localPosition.y >= startLocaly + (height / MaskSpeed))
         {
-            MaskElement.localPosition = new Vector3(MaskElement.localPosition.x, MaskElement.localPosition.y - MaskSpeed);
+            MaskElement.localPosition = new Vector3(MaskElement.localPosition.x, MaskElement.localPosition.y - (height/ MaskSpeed));
             yield return new WaitForSeconds(MaskAnimationSpeedSeconds);
         }
         MaskOn = true; 
@@ -74,7 +74,7 @@ public class MaskScript : MonoBehaviour
         MaskAnimated = true; 
         while  (MaskElement.localPosition.y < startLocaly + height)
         {
-            MaskElement.localPosition = new Vector3(MaskElement.localPosition.x,  MaskElement.localPosition.y + MaskSpeed);
+            MaskElement.localPosition = new Vector3(MaskElement.localPosition.x,  MaskElement.localPosition.y + (height/ MaskSpeed));
             yield return new WaitForSeconds(MaskAnimationSpeedSeconds); 
         }
         MaskOn = false; 
