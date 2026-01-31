@@ -14,6 +14,7 @@ public class MaskScript : MonoBehaviour
     public float MaskAnimationSpeedSeconds = 0.1f; 
 
     float height;
+    float startLocaly; 
 
     InputAction SwitchMask;
 
@@ -26,8 +27,10 @@ public class MaskScript : MonoBehaviour
     void Start()
     {
         MaskElement = gameObject.GetComponent<RectTransform>();
-        height = MaskElement.rect.yMax;
-        SwitchMask = InputSystem.actions.FindAction("Sprint"); 
+        height = MaskElement.rect.height;
+        startLocaly = MaskElement.localPosition.y; 
+        SwitchMask = InputSystem.actions.FindAction("Sprint");
+        MaskOn = true; 
     }
 
     // Update is called once per frame
@@ -55,7 +58,7 @@ public class MaskScript : MonoBehaviour
     IEnumerator PutMaskOn()
     {
         MaskAnimated = true;
-        while (MaskElement.anchoredPosition.y > -(height - MaskSpeed))
+        while(MaskElement.localPosition.y > startLocaly)
         {
             MaskElement.localPosition = new Vector3(MaskElement.localPosition.x, MaskElement.localPosition.y - MaskSpeed);
             yield return new WaitForSeconds(MaskAnimationSpeedSeconds);
@@ -69,7 +72,7 @@ public class MaskScript : MonoBehaviour
     IEnumerator PutMaskOff()
     {
         MaskAnimated = true; 
-        while (MaskElement.anchoredPosition.y < 0)
+        while  (MaskElement.localPosition.y < startLocaly + height)
         {
             MaskElement.localPosition = new Vector3(MaskElement.localPosition.x,  MaskElement.localPosition.y + MaskSpeed);
             yield return new WaitForSeconds(MaskAnimationSpeedSeconds); 
