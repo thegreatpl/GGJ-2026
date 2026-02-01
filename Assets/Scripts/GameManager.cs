@@ -94,8 +94,11 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         //insert game over screen here. 
+        var gameover = UI.GetComponentInChildren<GameOverScreen>(); 
 
-        BootToMenu(); 
+        if (gameover == null)
+            BootToMenu(); 
+        gameover.ShowGameOver();
 
     }
 
@@ -122,15 +125,18 @@ public class GameManager : MonoBehaviour
     public void Victory()
     {
         //insert you win screen here. 
+        var gameover = UI.GetComponentInChildren<GameOverScreen>();
+
+        if (gameover == null)
+            BootToMenu();
+        gameover.ShowVictory();
 
 
-
-        BootToMenu(); 
         
     }
 
 
-    private void BootToMenu()
+    public void BootToMenu()
     {
         Destroy(Player);
         Destroy(UI);

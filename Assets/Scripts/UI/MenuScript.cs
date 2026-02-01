@@ -18,4 +18,11 @@ public class MenuScript : MonoBehaviour
     {
         GameManager.Instance.StartNewGame();
     }
+
+
+    public void ExitGame()
+    {
+        Debug.Log("Exit called"); 
+        Application.Quit();
+    }
 }
