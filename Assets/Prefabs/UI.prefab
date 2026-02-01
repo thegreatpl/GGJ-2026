@@ -883,6 +883,8 @@ MonoBehaviour:
   PanelImage: {fileID: 1409522260381091989}
   DiedText: {fileID: 4179622371343220070}
   VictoryText: {fileID: 2801091728190077908}
+  GameOverClip: {fileID: 8300000, guid: 3a7346e8634922d4397f79515bf247f7, type: 3}
+  VictoryClip: {fileID: 8300000, guid: 64a4cade8725deb44a885b7c72345add, type: 3}
 --- !u!1 &8458485465986259963
 GameObject:
   m_ObjectHideFlags: 0

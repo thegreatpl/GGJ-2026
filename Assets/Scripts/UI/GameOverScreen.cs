@@ -8,7 +8,11 @@ public class GameOverScreen : MonoBehaviour
 
     public GameObject DiedText;
 
-    public GameObject VictoryText; 
+    public GameObject VictoryText;
+
+    public AudioClip GameOverClip; 
+
+    public AudioClip VictoryClip;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,7 +42,8 @@ public class GameOverScreen : MonoBehaviour
     IEnumerator GameOver()
     {
         DiedText?.SetActive(true);
-        PanelImage.color = Color.black; 
+        PanelImage.color = Color.black;
+        GameManager.Instance.SetMusic(GameOverClip); 
 
         yield return new WaitForSeconds(10);
         HideScreen(); 
@@ -54,7 +59,8 @@ public class GameOverScreen : MonoBehaviour
     IEnumerator Victory()
     {
         VictoryText?.SetActive(true);
-        PanelImage.color = Color.black;
+        //PanelImage.color = Color.black;
+        GameManager.Instance.SetMusic(VictoryClip);
 
         yield return new WaitForSeconds(10);
         HideScreen();

@@ -13,11 +13,15 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip ImpactClip; 
     public AudioClip SuffocateClip;
 
+
+    bool isDead; 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         CurrentHP = MaxHP; 
         DamageComponent = GameManager.Instance.UI.GetComponentInChildren<DamageComponent>();
+        isDead = false;
     }
 
     // Update is called once per frame
@@ -28,6 +32,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(string source)
     {
+        if (isDead)
+            return; 
+
         CurrentHP--;
         //play damage sound here. 
         if (source == "attk")
@@ -41,12 +48,14 @@ public class PlayerHealth : MonoBehaviour
             DamageAudio.Play();
         }
 
-            DamageComponent.ShowDamageWindow();
+        DamageComponent.ShowDamageWindow();
         DamageComponent.SetMaskDamageLevel(CurrentHP);
 
         if (CurrentHP <= 0 )
         {
+            isDead = true;
             GameManager.Instance.GameOver();
+            
         }
     }
 }
