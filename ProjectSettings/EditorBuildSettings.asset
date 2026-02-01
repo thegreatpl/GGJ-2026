@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/dick.unity
     guid: d3b13ba21e1361b418d75912210df555
   - enabled: 1
+    path: Assets/Scenes/EntrywaySwarm.unity
+    guid: 7eb250c2c432a1d4abe684eb53bcc8a3
+  - enabled: 1
     path: Assets/Scenes/JokeLevel1.unity
     guid: 8c7d09ce4d2de45499c455f8ba3a98ec
   - enabled: 1
@@ -47,6 +50,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/TheAtrium.unity
+    guid: 701ae537ec8242f4a95eee3785faa62c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

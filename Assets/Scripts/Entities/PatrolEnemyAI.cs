@@ -8,7 +8,7 @@ public class PatrolEnemyAI : BaseAI
 
     public Waypoint[] Waypoints;
 
-    public int CurrentWaypoint; 
+    public int CurrentWaypoint = 0; 
 
     public float Distance = 1f;
     public float AttackDistance = 1f; 
@@ -24,7 +24,6 @@ public class PatrolEnemyAI : BaseAI
     void Start()
     {
         MovementController = GetComponent<MovementController>();
-        CurrentWaypoint = 0;
         Animator = GetComponentInChildren<Animator>();
     }
 
