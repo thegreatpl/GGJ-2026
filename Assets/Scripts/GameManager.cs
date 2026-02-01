@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     IEnumerator StartGame()
     {
         yield return StartCoroutine(SpawnPlayer());
-        yield return StartCoroutine(LoadLevelCoroutine("JokeLevel1", "Default")); //TODO: First level name here. 
+        yield return StartCoroutine(LoadLevelCoroutine("JokeLevel1", "Default"));  
     }
 
     IEnumerator SpawnPlayer()
@@ -95,7 +95,9 @@ public class GameManager : MonoBehaviour
     {
         Destroy(Player); 
         Destroy(UI); 
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single); 
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        Cursor.lockState = CursorLockMode.None;
+
     }
 
 
