@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     public MapScript CurrentMap;
 
 
+    public AudioSource BackgroundMusic; 
+
+
     private Camera CurrentCamera; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -31,6 +34,7 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         prefabManager = GetComponent<PrefabManager>();
+        BackgroundMusic = GetComponent<AudioSource>();
 
         if (SceneManager.GetActiveScene().name != "MainMenu")
         {
@@ -142,5 +146,12 @@ public class GameManager : MonoBehaviour
         Destroy(UI);
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
         Cursor.lockState = CursorLockMode.None;
+    }
+
+
+    public void SetMusic(AudioClip audio)
+    {
+        BackgroundMusic.clip = audio;
+        BackgroundMusic.Play();
     }
 }

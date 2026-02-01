@@ -10517,6 +10517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f828e1985630d4e8942dea17f7b1e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  MapMusic: {fileID: 8300000, guid: 3aca22d2946c00342997bacfaf166fce, type: 3}
 --- !u!1839735485 &3485138971175006283
 Tilemap:
   m_ObjectHideFlags: 0

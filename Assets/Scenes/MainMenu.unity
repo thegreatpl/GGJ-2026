@@ -5817,6 +5817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f828e1985630d4e8942dea17f7b1e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  MapMusic: {fileID: 8300000, guid: 626f0a751ee50fb46ab24058047ec058, type: 3}
 --- !u!1 &4092401353435212104
 GameObject:
   m_ObjectHideFlags: 0

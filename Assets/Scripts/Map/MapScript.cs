@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class MapScript : MonoBehaviour
 {
-    public Dictionary<string, Vector3> StartLocations; 
+    public Dictionary<string, Vector3> StartLocations;
+
+    public AudioClip MapMusic; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,6 +15,11 @@ public class MapScript : MonoBehaviour
         foreach (var loc in playerstartlocs)
         {
             RegisterSpawnLocation(loc.LocationName, loc.transform.position); 
+        }
+
+        if (MapMusic != null)
+        {
+            GameManager.Instance.SetMusic(MapMusic);
         }
     }
 

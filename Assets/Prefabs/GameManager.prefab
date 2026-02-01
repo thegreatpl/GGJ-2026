@@ -50,6 +50,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   UI: {fileID: 0}
   CurrentMap: {fileID: 0}
+  BackgroundMusic: {fileID: 0}
 --- !u!114 &1484383894869713234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,7 +83,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 3aca22d2946c00342997bacfaf166fce, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
