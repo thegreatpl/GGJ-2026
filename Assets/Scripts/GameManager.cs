@@ -95,10 +95,7 @@ public class GameManager : MonoBehaviour
     {
         //insert game over screen here. 
 
-        Destroy(Player); 
-        Destroy(UI); 
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
-        Cursor.lockState = CursorLockMode.None;
+        BootToMenu(); 
 
     }
 
@@ -126,6 +123,15 @@ public class GameManager : MonoBehaviour
     {
         //insert you win screen here. 
 
+
+
+        BootToMenu(); 
+        
+    }
+
+
+    private void BootToMenu()
+    {
         Destroy(Player);
         Destroy(UI);
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
