@@ -53,6 +53,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TheAtrium.unity
     guid: 701ae537ec8242f4a95eee3785faa62c
+  - enabled: 1
+    path: Assets/Scenes/TheLabs.unity
+    guid: 36c5d813ac61c5d42a05be894c70134e
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: 299e08fb5b9967e49b706bea36724bfc
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -93,6 +93,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        //insert game over screen here. 
+
         Destroy(Player); 
         Destroy(UI); 
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
@@ -117,5 +119,16 @@ public class GameManager : MonoBehaviour
         }
 
         return CurrentCamera;
+    }
+
+
+    public void Victory()
+    {
+        //insert you win screen here. 
+
+        Destroy(Player);
+        Destroy(UI);
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        Cursor.lockState = CursorLockMode.None;
     }
 }
