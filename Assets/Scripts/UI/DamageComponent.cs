@@ -6,7 +6,13 @@ public class DamageComponent : MonoBehaviour
 {
     public Image Image;
 
-    public float SecondsToShow = 1f; 
+    public Image MaskImage; 
+
+    public float SecondsToShow = 1f;
+
+    public Sprite DamagedMask;
+
+    public Sprite HeavilyDamagedMask; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,5 +37,17 @@ public class DamageComponent : MonoBehaviour
         Image.enabled = true;
         yield return new WaitForSeconds(SecondsToShow);
         Image.enabled = false;
+    }
+
+    public void SetMaskDamageLevel(int level)
+    {
+        if (level == 2)
+        {
+            MaskImage.sprite = DamagedMask; 
+        }
+        else if (level == 1)
+        {
+            MaskImage.sprite = HeavilyDamagedMask;
+        }
     }
 }

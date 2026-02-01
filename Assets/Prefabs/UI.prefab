@@ -385,7 +385,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   Image: {fileID: 3083099314339215475}
+  MaskImage: {fileID: 2906339048535198394}
   SecondsToShow: 1
+  DamagedMask: {fileID: 566975915, guid: 1284d6522e9823f4199065b057587a27, type: 3}
+  HeavilyDamagedMask: {fileID: 918054095, guid: d430fc7f4fda3174d96cba6c2daa902e, type: 3}
 --- !u!1 &7488433488345646808
 GameObject:
   m_ObjectHideFlags: 0

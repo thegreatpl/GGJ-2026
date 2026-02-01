@@ -26,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
         CurrentHP--;
         //play damage sound here. 
         DamageComponent.ShowDamageWindow();
+        DamageComponent.SetMaskDamageLevel(CurrentHP);
 
         if (CurrentHP <= 0 )
         {
