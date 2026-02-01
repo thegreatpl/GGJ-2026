@@ -95,7 +95,9 @@ public class GameManager : MonoBehaviour
     {
         Destroy(Player); 
         Destroy(UI); 
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single); 
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        Cursor.lockState = CursorLockMode.None;
+
     }
 
 

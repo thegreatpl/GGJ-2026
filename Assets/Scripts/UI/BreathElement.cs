@@ -74,5 +74,10 @@ public class BreathElement : MonoBehaviour
 
         yield return null;
         //insert game over here. 
+        while ( holdingBreath )
+        {
+            GameManager.Instance.Player?.GetComponent<PlayerHealth>().TakeDamage("suffo");
+            yield return new WaitForSeconds(1f); 
+        }
     }
 }
