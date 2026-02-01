@@ -11,6 +11,8 @@ public class MouseLook : MonoBehaviour
 
     InputAction Look;
 
+    //first person controller tutorial: https://www.youtube.com/watch?v=_QajrabyTJc
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

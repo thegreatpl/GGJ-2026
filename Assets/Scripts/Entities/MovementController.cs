@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;  // 1. The Input System "using" statement
 [RequireComponent(typeof(CharacterController))]
 public class MovementController : MonoBehaviour
 {
+    //first person controller tutorial: https://www.youtube.com/watch?v=_QajrabyTJc
 
     public CharacterController Controller;
     public float Speed = 12f;

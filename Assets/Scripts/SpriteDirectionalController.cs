@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SpriteDirectionalController : MonoBehaviour
 {
+    //based on this: https://www.youtube.com/watch?v=UcYfEfJW_mk
+
     public float BackAngle = 65f;
     public float SideAngle  = 155f; 
 
